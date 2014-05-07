@@ -14,10 +14,10 @@ public class BrickScript : MonoBehaviour {
 	public int pointValue = 5;
 	public int hitPoints = 1;
 	public GameObject SoundPrefab;
-	public GameObject PowerUpManager;
 
 	private static PowerUpManagerScript powerUpManagerScript;
 	private static int nextPowerUp;
+
 	private GameObject mySound;
 	private bool markedForDeath = false;
 
@@ -26,7 +26,7 @@ public class BrickScript : MonoBehaviour {
 		if (numBricks == 0) {
 			paddleScript = GameObject.Find ("paddle").GetComponent<PaddleScript> ();
 			GetNextPowerUp();
-			powerUpManagerScript = PowerUpManager.GetComponent<PowerUpManagerScript>();
+			powerUpManagerScript = GameObject.Find ("PowerUpManager").GetComponent<PowerUpManagerScript>();
 		}
 		mySound = (GameObject)Instantiate (SoundPrefab, transform.position, Quaternion.identity);
 		numBricks++;
@@ -64,6 +64,7 @@ public class BrickScript : MonoBehaviour {
 		Debug.Log ("----------- Brick " + name + " deploying powerUp");
 		GameObject powerUpPrefab = powerUpManagerScript.GetRandomPowerUp();
 		GameObject powerUp = (GameObject)Instantiate (powerUpPrefab, transform.position, Quaternion.identity);
+		powerUpManagerScript.PlayPowerUpSound(powerUp);
 		powerUp.rigidbody.AddTorque (0, 0, 50);
 		powerUp.rigidbody.AddForce (0, 50, 0);
 		GetNextPowerUp();
@@ -81,7 +82,7 @@ public class BrickScript : MonoBehaviour {
 		Debug.Log ("numBricks="+numBricks+", level="+level);
 		if (numBricks <= 0) {
 			level++;
-			if(level <= 3)
+			if(level <= 5)
 			{
 				Application.LoadLevel("Breakout_0"+level);
 			}

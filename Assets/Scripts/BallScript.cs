@@ -3,8 +3,11 @@ using System.Collections;
 
 public class BallScript : MonoBehaviour {
 	public float speedLimit;
+	public GameObject bounceSoundPrefab;
+	private GameObject mySound;
 
 	void Start () {
+		mySound = (GameObject)Instantiate (bounceSoundPrefab, transform.position, Quaternion.identity);
 	}
 	
 	void Update () {
@@ -30,4 +33,12 @@ public class BallScript : MonoBehaviour {
 		paddleScript.LoseLife ();
 	}
 
+	void OnCollisionEnter( Collision col)
+	{
+		if (col.collider.gameObject.name.Substring (0, 5) == "brick")
+			return;
+
+		mySound.transform.position = transform.position;
+		mySound.audio.Play();
+	}
 }

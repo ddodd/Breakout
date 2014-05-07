@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 802bf032ca6bc1b4dba1a44f4a4d4bb8
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - SoundPrefab: {instanceID: 0}
+  - PowerUpManager: {fileID: 100000, guid: fce8dcdafba934a46a7f7db2a71899f6, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

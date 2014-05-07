@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 5a9b87081d57a714a960e6bca3f67e7c
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ballPrefab: {fileID: 100000, guid: 2f21f1d07c22f994fb0e4903abd0ecee, type: 2}
+  - guiSkin: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
