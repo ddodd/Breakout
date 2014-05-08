@@ -79,7 +79,12 @@ public class BrickScript : MonoBehaviour {
 		}
 	}
 
-	public void Hit(){
+	public void Bomb(GameObject ball) {
+		this.ball = ball;
+		Hit (500f);
+	}
+
+	public void Hit(float power=200f){
 		nextPowerUp--;
 		if (nextPowerUp <=0)
 			DeployPowerUp ();
@@ -93,7 +98,7 @@ public class BrickScript : MonoBehaviour {
 		colorEnd.a = 0;
 		gameObject.AddComponent<Rigidbody> ();
 		rigidbody.mass = 1;
-		rigidbody.AddExplosionForce(200, ball.transform.position, 10);
+		rigidbody.AddExplosionForce(power, ball.transform.position, 10);
 	}
 
 	void DeployPowerUp(){

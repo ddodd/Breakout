@@ -13,7 +13,7 @@ public class BombScript : MonoBehaviour {
 	
 	}
 
-	public void Explode(float radius=3) {
+	public void Explode(GameObject ball, float radius=3) {
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 		Debug.Log (hitColliders.Length + " bricks effected");
 		int i = 0;
@@ -21,7 +21,7 @@ public class BombScript : MonoBehaviour {
 			// get brick script and call Die()
 			BrickScript brickScript = hitColliders[i].gameObject.GetComponent<BrickScript>();
 			if(brickScript)
-				brickScript.Hit ();
+				brickScript.Bomb(ball);
 			i++;
 		}
 	}

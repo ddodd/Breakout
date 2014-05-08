@@ -134,7 +134,7 @@ public class PaddleScript : MonoBehaviour {
 	public void DropBomb(){
 		bomb = (GameObject)Instantiate (bombPrefab, ball.transform.position, Quaternion.identity);
 		BombScript bombScript = bomb.GetComponent<BombScript> ();
-		bombScript.Explode ();
+		bombScript.Explode (ball);
 	}
 	
 	void OnCollisionEnter( Collision col)
