@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BallScript : MonoBehaviour {
 	public float speedLimit;
+	public float speedMin = 1;
 	public GameObject bounceSoundPrefab;
 	private GameObject mySound;
 
@@ -14,11 +15,8 @@ public class BallScript : MonoBehaviour {
 		rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, speedLimit);
 		if (rigidbody.velocity.magnitude > speedLimit)
 			Debug.Log ("+ + + velocity =" + rigidbody.velocity.magnitude);
-//		if (rigidbody.velocity.magnitude > speedLimit) {
-//			Debug.Log ("1 velocity=" + rigidbody.velocity.magnitude);
-//			rigidbody.velocity *= speedLimit/rigidbody.velocity.magnitude;
-//			Debug.Log ("2 velocity=" + rigidbody.velocity.magnitude);
-//		}
+		if (rigidbody.velocity.magnitude < speedMin)
+			rigidbody.velocity *= 2;
 	}
 
 	public void Boost (float value)

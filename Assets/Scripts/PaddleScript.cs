@@ -3,12 +3,14 @@ using System.Collections;
 
 public class PaddleScript : MonoBehaviour {
 	public GameObject ballPrefab;
+	public GameObject bombPrefab;
 	public int lives = 6;
 	public GUISkin guiSkin;
 
 	public float power = 20f;
 	private GameObject attachedBall;
 	private GameObject ball;
+	private GameObject bomb;
 
 	private GUIText guiLives;
 	private float xMax;
@@ -102,11 +104,15 @@ public class PaddleScript : MonoBehaviour {
 			ballRigidbody.position = transform.position + new Vector3 (0, 0.75f, 0);
 			if(Input.GetButtonDown("Jump")){
 				ballRigidbody.isKinematic = false;
-				ballRigidbody.AddForce( h*300f, 500f, 0 );
+				ballRigidbody.AddForce( h*500f, 1000f, 0 );
 				ball = attachedBall;
 				attachedBall = null;
 			}
 		}
+		if(Input.GetKeyDown (KeyCode.LeftControl)){
+			Debug.Log ("BOMB!");
+			DropBomb();
+		}		
 	}
 
 	public void ActivatePowerUp(GameObject powerUp){
@@ -119,11 +125,16 @@ public class PaddleScript : MonoBehaviour {
 		Debug.Log (this +" BoostSpeed: ");
 		ball.GetComponent<BallScript>().Boost(value);
 	}
-
-	
+		
 	public void ResetScale(){
 		Debug.Log (this +" resetScale");
 		gameObject.transform.localScale = scaleNormal;
+	}
+
+	public void DropBomb(){
+		bomb = (GameObject)Instantiate (bombPrefab, ball.transform.position, Quaternion.identity);
+		BombScript bombScript = bomb.GetComponent<BombScript> ();
+		bombScript.Explode ();
 	}
 	
 	void OnCollisionEnter( Collision col)
@@ -132,7 +143,7 @@ public class PaddleScript : MonoBehaviour {
 		foreach (ContactPoint contact in col.contacts) {
 			if(contact.thisCollider == collider){
 				float english = contact.point.x - transform.position.x;
-				contact.otherCollider.rigidbody.AddForce ( 300f * english, 25f, 0);
+				contact.otherCollider.rigidbody.AddForce ( 1000f * english, 200f, 0);
 				break;
 			}
 		}

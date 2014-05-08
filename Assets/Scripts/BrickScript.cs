@@ -10,6 +10,7 @@ public class BrickScript : MonoBehaviour {
 	static string SPEEDUP = "SPEEDUP";
 
 	public string type = NORMAL;
+	public float fadeDuration = .5f;
 	public float value = 1;
 	public int pointValue = 5;
 	public int hitPoints = 1;
@@ -17,6 +18,13 @@ public class BrickScript : MonoBehaviour {
 
 	private static PowerUpManagerScript powerUpManagerScript;
 	private static int nextPowerUp;
+
+	private GameObject ball;
+
+	private float fadeAmount;
+	static Vector3 originalScale;
+	private Color colorStart;
+	private Color colorEnd;
 
 	private GameObject mySound;
 	private bool markedForDeath = false;
@@ -27,15 +35,27 @@ public class BrickScript : MonoBehaviour {
 			paddleScript = GameObject.Find ("paddle").GetComponent<PaddleScript> ();
 			GetNextPowerUp();
 			powerUpManagerScript = GameObject.Find ("PowerUpManager").GetComponent<PowerUpManagerScript>();
+			originalScale = transform.localScale;
 		}
 		mySound = (GameObject)Instantiate (SoundPrefab, transform.position, Quaternion.identity);
 		numBricks++;
 	}
 	
 	void Update () {
-		if (markedForDeath && !mySound.audio.isPlaying) {
-			Destroy (mySound);
-			Die ();
+		if (markedForDeath){
+			if(mySound && !mySound.audio.isPlaying)
+				Destroy (mySound);
+			fadeAmount -= Time.deltaTime;
+			if (fadeAmount <= 0){
+				renderer.enabled = false;
+				markedForDeath = false;
+				Die ();
+			}else{
+				float value = fadeAmount/fadeDuration; // value goes from 1 to 0 over time
+				renderer.material.color = Color.Lerp (colorEnd, colorStart, value);
+				//transform.localScale = originalScale * (1+value)/2;
+			}
+			//Debug.Log ("fadeAmount:"+fadeAmount);
 		}
 	}
 
@@ -44,20 +64,36 @@ public class BrickScript : MonoBehaviour {
 	}
 
 	void OnCollisionEnter( Collision col ){
-		Debug.Log (this + " was hit !");
+		Debug.Log (this + " was hit by "+col.collider.gameObject.name);
 		mySound.audio.Play ();
-		hitPoints--;
-
-		if (type == SPEEDUP) {
-			Debug.Log ("type="+type+", value="+value);
-			paddleScript.BoostSpeed(value);
+		if (col.collider.gameObject.name.Substring (0, 4) == "ball") {
+			hitPoints--;
+			ball = col.collider.gameObject;
+			if (type == SPEEDUP) {
+				paddleScript.BoostSpeed(value);
+			}
+			
+			if (hitPoints <= 0) {
+				Hit ();
+			}
 		}
+	}
 
-		if (hitPoints <= 0) {
-			renderer.enabled = false;
-			collider.isTrigger = true;
-			markedForDeath = true;
-		}
+	public void Hit(){
+		nextPowerUp--;
+		if (nextPowerUp <=0)
+			DeployPowerUp ();
+		
+		paddleScript.AddPoints (pointValue);
+		collider.isTrigger = true;
+		markedForDeath = true;
+		fadeAmount = fadeDuration;
+		colorStart = renderer.material.color;			
+		colorEnd = colorStart;
+		colorEnd.a = 0;
+		gameObject.AddComponent<Rigidbody> ();
+		rigidbody.mass = 1;
+		rigidbody.AddExplosionForce(200, ball.transform.position, 10);
 	}
 
 	void DeployPowerUp(){
@@ -66,19 +102,13 @@ public class BrickScript : MonoBehaviour {
 		GameObject powerUp = (GameObject)Instantiate (powerUpPrefab, transform.position, Quaternion.identity);
 		powerUpManagerScript.PlayPowerUpSound(powerUp);
 		powerUp.rigidbody.AddTorque (0, 0, 50);
-		powerUp.rigidbody.AddForce (0, 50, 0);
+		powerUp.rigidbody.AddForce (0, 500f, 0);
 		GetNextPowerUp();
 	}
 
-	void Die(){
+	public void Die(){
 		numBricks--;
-		nextPowerUp--;
-		if (nextPowerUp <=0)
-			DeployPowerUp ();
-
-		paddleScript.AddPoints (pointValue);
 		Destroy (gameObject);
-
 		Debug.Log ("numBricks="+numBricks+", level="+level);
 		if (numBricks <= 0) {
 			level++;
@@ -91,5 +121,15 @@ public class BrickScript : MonoBehaviour {
 				Application.LoadLevel("BreakoutGameOver");
 			}
 		}
+	}
+
+	void FadeOut ()		
+	{
+
+		float duration = 1;
+		for (float t = 0f; t < duration; t += Time.deltaTime) {			
+			renderer.material.color = Color.Lerp (colorStart, colorEnd, t/duration);
+		}
+		
 	}
 }
