@@ -8,11 +8,14 @@ public class PowerUpScript : MonoBehaviour {
 	private bool triggered = false;
 	private GameObject paddle;
 	private PaddleScript paddleScript;
+	private PowerUpManagerScript powerUpManagerScript;
+
 	private Vector3 extraWide = new Vector3(1,0,0);
 
 	void Start () {
 		paddle = GameObject.Find ("paddle");
 		paddleScript = paddle.GetComponent<PaddleScript> ();
+		powerUpManagerScript = GameObject.Find ("PowerUpManager").GetComponent<PowerUpManagerScript> ();
 	}
 	
 	void Update () 
@@ -44,6 +47,7 @@ public class PowerUpScript : MonoBehaviour {
 	}
 
 	void ApplyPowerUp(){
+		powerUpManagerScript.PlayPowerUpSound (gameObject);
 		switch(type){
 		case "WIDTH":
 			//paddleScript.ResetScale();

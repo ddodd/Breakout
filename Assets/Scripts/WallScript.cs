@@ -14,22 +14,25 @@ public class WallScript : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter( Collision col)
+	void OnCollisionExit( Collision col)
 	{
+		if (col.collider.gameObject.name != "ball")
+			return;
+
 		GameObject ball = col.collider.gameObject;
 		Vector3 velocity = ball.rigidbody.velocity;
 //		Debug.Log ("bounce velocity=" + velocity);
 		float xSpeed = velocity.x;
+		float ySpeed = velocity.y;
 		if (xSpeed == 0)
 			xSpeed = Random.Range (-2f, 2f);
-		float ySpeed = velocity.y;
 //		Debug.Log ("ySpeed=" + ySpeed);
 		if (Mathf.Abs (ySpeed) < 4f) {
 			if (Mathf.Abs (ySpeed) < 1f) {
 				ySpeed = Mathf.Sign(ySpeed)*2;
 //				Debug.Log ("ySpeed is now " + ySpeed);
 			}
-			ySpeed *= 1.25f;
+			ySpeed *= 1.5f;
 		}
 		velocity.x = xSpeed * Random.Range (1f, 1.5f);
 		velocity.y = ySpeed * Random.Range (1f, 1.5f);

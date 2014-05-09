@@ -22,20 +22,21 @@ public class BrickScript : MonoBehaviour {
 	private GameObject ball;
 
 	private float fadeAmount;
-	static Vector3 originalScale;
+//	static Vector3 originalScale;
 	private Color colorStart;
 	private Color colorEnd;
 
 	private GameObject mySound;
 	private bool markedForDeath = false;
+	private bool bombed = false;
 
 	void Start () {
-		//Debug.Log ("sound is " + audio.clip);
+		//static properties added only once
 		if (numBricks == 0) {
 			paddleScript = GameObject.Find ("paddle").GetComponent<PaddleScript> ();
 			GetNextPowerUp();
 			powerUpManagerScript = GameObject.Find ("PowerUpManager").GetComponent<PowerUpManagerScript>();
-			originalScale = transform.localScale;
+//			originalScale = transform.localScale;
 		}
 		mySound = (GameObject)Instantiate (SoundPrefab, transform.position, Quaternion.identity);
 		numBricks++;
@@ -80,16 +81,18 @@ public class BrickScript : MonoBehaviour {
 	}
 
 	public void Bomb(GameObject ball) {
+		bombed = true;
 		this.ball = ball;
 		Hit (500f);
 	}
 
 	public void Hit(float power=200f){
-		nextPowerUp--;
-		if (nextPowerUp <=0)
-			DeployPowerUp ();
-		
-		paddleScript.AddPoints (pointValue);
+		if (!bombed) {
+			nextPowerUp--;
+			if (nextPowerUp <= 0)
+				DeployPowerUp ();
+			paddleScript.AddPoints (pointValue);
+		}
 		collider.isTrigger = true;
 		markedForDeath = true;
 		fadeAmount = fadeDuration;
@@ -105,7 +108,6 @@ public class BrickScript : MonoBehaviour {
 		Debug.Log ("----------- Brick " + name + " deploying powerUp");
 		GameObject powerUpPrefab = powerUpManagerScript.GetRandomPowerUp();
 		GameObject powerUp = (GameObject)Instantiate (powerUpPrefab, transform.position, Quaternion.identity);
-		powerUpManagerScript.PlayPowerUpSound(powerUp);
 		powerUp.rigidbody.AddTorque (0, 0, 50);
 		powerUp.rigidbody.AddForce (0, 500f, 0);
 		GetNextPowerUp();
@@ -130,11 +132,9 @@ public class BrickScript : MonoBehaviour {
 
 	void FadeOut ()		
 	{
-
 		float duration = 1;
 		for (float t = 0f; t < duration; t += Time.deltaTime) {			
 			renderer.material.color = Color.Lerp (colorStart, colorEnd, t/duration);
 		}
-		
 	}
 }

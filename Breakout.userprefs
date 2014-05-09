@@ -1,16 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BallScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PaddleScript.cs">
     <Files>
       <File FileName="Assets\Scripts\BallScript.cs" Line="21" Column="2" />
-      <File FileName="Assets\Scripts\PaddleScript.cs" Line="107" Column="32" />
-      <File FileName="Assets\Scripts\BrickScript.cs" Line="107" Column="3" />
+      <File FileName="Assets\Scripts\PaddleScript.cs" Line="104" Column="1" />
+      <File FileName="Assets\Scripts\BrickScript.cs" Line="79" Column="4" />
       <File FileName="Assets\Scripts\DeathZoneScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SoundScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PowerUpScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PowerUpManagerScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\WallScript.cs" Line="38" Column="3" />
-      <File FileName="Assets\Scripts\BombScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BombScript.cs" Line="21" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

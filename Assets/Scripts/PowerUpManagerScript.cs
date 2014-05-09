@@ -8,7 +8,6 @@ public class PowerUpManagerScript : MonoBehaviour {
 	private GameObject mySound;
 
 	void Start () {
-		mySound = (GameObject)Instantiate (powerUpPrefab_sound, transform.position, Quaternion.identity);
 	}
 	
 	void Update () 
@@ -41,9 +40,10 @@ public class PowerUpManagerScript : MonoBehaviour {
 	}
 	
 	public void PlayPowerUpSound(GameObject powerUp){
+		mySound = (GameObject)Instantiate (powerUpPrefab_sound, transform.position, Quaternion.identity);
 		Debug.Log (mySound+" PlayPowerUpSound:"+powerUp);
-//		mySound.transform.position = powerUp.transform.position;
-//		mySound.audio.Play();
+		mySound.transform.position = powerUp.transform.position;
+		mySound.audio.Play();
 	}
 	
 
