@@ -29,5 +29,7 @@ public class BombScript : MonoBehaviour {
 				brickScript.Bomb(ball);
 			i++;
 		}
+		Destroy(gameObject);
+		Destroy(mySound);
 	}
 }

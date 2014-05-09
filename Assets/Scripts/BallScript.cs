@@ -5,10 +5,11 @@ public class BallScript : MonoBehaviour {
 	public float speedLimit;
 	public float speedMin = 1;
 	public GameObject bounceSoundPrefab;
-	private GameObject mySound;
+	private static GameObject mySound;
 
 	void Start () {
-		mySound = (GameObject)Instantiate (bounceSoundPrefab, transform.position, Quaternion.identity);
+		if(!mySound)
+			mySound = (GameObject)Instantiate (bounceSoundPrefab, transform.position, Quaternion.identity);
 	}
 	
 	void Update () {

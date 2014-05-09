@@ -96,7 +96,7 @@ public class PaddleScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		Debug.Log ("paddle.Update");
+		//Debug.Log ("paddle.Update");
 		//float h = Input.GetAxis ("Mouse X");
 //		float h = Input.GetAxis ("Horizontal");
 //		if( h!=0 )
@@ -118,9 +118,9 @@ public class PaddleScript : MonoBehaviour {
 			// make ball track paddle
 			Rigidbody ballRigidbody = attachedBall.rigidbody;
 			Vector3 position = transform.position;
-			Debug.Log ("position:"+position);
-			transform.position = keepInBounds(position, 1f);
-			Debug.Log ("t.position:"+transform.position);
+			//Debug.Log ("position:"+position);
+			transform.position = keepInBounds(position);
+			//Debug.Log ("t.position:"+transform.position);
 			ballRigidbody.position = transform.position + new Vector3 (0, 0.75f, 0);
 			if(Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)){
 				ballRigidbody.isKinematic = false;

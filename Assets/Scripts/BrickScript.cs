@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BrickScript : MonoBehaviour {
@@ -14,9 +14,9 @@ public class BrickScript : MonoBehaviour {
 	public float value = 1;
 	public int pointValue = 5;
 	public int hitPoints = 1;
-	public GameObject SoundPrefab;
 
 	private static PowerUpManagerScript powerUpManagerScript;
+	private static SoundManagerScript soundManagerScript;
 	private static int nextPowerUp;
 
 	private GameObject ball;
@@ -26,7 +26,6 @@ public class BrickScript : MonoBehaviour {
 	private Color colorStart;
 	private Color colorEnd;
 
-	private GameObject mySound;
 	private bool markedForDeath = false;
 	private bool bombed = false;
 
@@ -36,16 +35,14 @@ public class BrickScript : MonoBehaviour {
 			paddleScript = GameObject.Find ("paddle").GetComponent<PaddleScript> ();
 			GetNextPowerUp();
 			powerUpManagerScript = GameObject.Find ("PowerUpManager").GetComponent<PowerUpManagerScript>();
-//			originalScale = transform.localScale;
+			soundManagerScript = GameObject.Find ("SoundManager").GetComponent<SoundManagerScript> ();
+			//			originalScale = transform.localScale;
 		}
-		mySound = (GameObject)Instantiate (SoundPrefab, transform.position, Quaternion.identity);
 		numBricks++;
 	}
 	
 	void Update () {
 		if (markedForDeath){
-			if(mySound && !mySound.audio.isPlaying)
-				Destroy (mySound);
 			fadeAmount -= Time.deltaTime;
 			if (fadeAmount <= 0){
 				renderer.enabled = false;
@@ -66,7 +63,7 @@ public class BrickScript : MonoBehaviour {
 
 	void OnCollisionEnter( Collision col ){
 		Debug.Log (this + " was hit by "+col.collider.gameObject.name);
-		mySound.audio.Play ();
+		soundManagerScript.PlayBrickSound( gameObject );
 		if (col.collider.gameObject.name.Substring (0, 4) == "ball") {
 			hitPoints--;
 			ball = col.collider.gameObject;

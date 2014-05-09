@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\PlayFieldScript.cs" />
      <Compile Include="Assets\Scripts\PowerUpManagerScript.cs" />
      <Compile Include="Assets\Scripts\PowerUpScript.cs" />
+     <Compile Include="Assets\Scripts\SoundManagerScript.cs" />
      <Compile Include="Assets\Scripts\SoundScript.cs" />
      <Compile Include="Assets\Scripts\WallScript.cs" />
   </ItemGroup>

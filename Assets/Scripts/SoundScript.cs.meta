@@ -2,7 +2,17 @@ fileFormatVersion: 2
 guid: 047877b9cd8350c4f8a19f46511995e9
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - brick_5_sound_prefab: {instanceID: 0}
+  - brick_10_sound_prefab: {instanceID: 0}
+  - brick_25_sound_prefab: {instanceID: 0}
+  - brick_100_sound_prefab: {instanceID: 0}
+  - brick_power_sound_prefab: {instanceID: 0}
+  - brick_5_sound: {instanceID: 0}
+  - brick_10_sound: {instanceID: 0}
+  - brick_25_sound: {instanceID: 0}
+  - brick_100_sound: {instanceID: 0}
+  - brick_power_sound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
