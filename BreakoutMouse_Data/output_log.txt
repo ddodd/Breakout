@@ -11,7 +11,7 @@ Platform assembly: A:\data\Unity\Breakout\BreakoutMouse_Data\Managed\UnityEngine
 Loading A:\data\Unity\Breakout\BreakoutMouse_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: A:\data\Unity\Breakout\BreakoutMouse_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading A:\data\Unity\Breakout\BreakoutMouse_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.131 seconds
+- Completed reload, in  0.108 seconds
 desktop: 1920x1200 60Hz; virtual: 3840x1200 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found.
@@ -46,21 +46,6 @@ BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Script
  
 (Filename: A Line: 0)
 
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
 paddle (UnityEngine.GameObject) collided with ball
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -68,7 +53,7 @@ PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Script
  
 (Filename: A Line: 0)
 
-english is -0.6954138
+english is -0.329861
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
@@ -87,13 +72,6 @@ UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
 BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-brick_25 (UnityEngine.GameObject) DeathZone Trigger
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
  
 (Filename: A Line: 0)
 
@@ -105,14 +83,6 @@ BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50
  
 (Filename: A Line: 0)
 
-numBricks=115, level=0
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
-BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
- 
-(Filename: A Line: 0)
-
 paddle (UnityEngine.GameObject) collided with ball
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -120,7 +90,7 @@ PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Script
  
 (Filename: A Line: 0)
 
-english is -0.9365348
+english is -0.3956442
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
@@ -142,17 +112,78 @@ BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Script
  
 (Filename: A Line: 0)
 
-paddle (UnityEngine.GameObject) collided with ball
+BOMB!
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
+PaddleScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:136)
  
 (Filename: A Line: 0)
 
-english is -0.355
+paddle (PaddleScript).DropBomb:ball=ball (UnityEngine.GameObject)
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
+PaddleScript:DropBomb() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:170)
+PaddleScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:137)
+ 
+(Filename: A Line: 0)
+
+24 bricks effected
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BombScript:Explode(GameObject, Single) (at A:\data\Unity\Breakout\Assets\Scripts\BombScript.cs:23)
+PaddleScript:DropBomb() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:173)
+PaddleScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:137)
+ 
+(Filename: A Line: 0)
+
+Can't add component 'Rigidbody' to brick_25 because such a component is already added to the game object!
+UnityEngine.GameObject:Internal_AddComponentWithType(Type)
+UnityEngine.GameObject:AddComponent(Type)
+UnityEngine.GameObject:AddComponent()
+BrickScript:Hit(Single) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:99)
+BrickScript:Bomb(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:83)
+BombScript:Explode(GameObject, Single) (at A:\data\Unity\Breakout\Assets\Scripts\BombScript.cs:29)
+PaddleScript:DropBomb() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:173)
+PaddleScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:137)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Export/GameObjectExport.cpp line 85] 
+(Filename: A Line: 0)
+
+Can't add component 'Rigidbody' to brick_25 because such a component is already added to the game object!
+UnityEngine.GameObject:Internal_AddComponentWithType(Type)
+UnityEngine.GameObject:AddComponent(Type)
+UnityEngine.GameObject:AddComponent()
+BrickScript:Hit(Single) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:99)
+BrickScript:Bomb(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:83)
+BombScript:Explode(GameObject, Single) (at A:\data\Unity\Breakout\Assets\Scripts\BombScript.cs:29)
+PaddleScript:DropBomb() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:173)
+PaddleScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:137)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Export/GameObjectExport.cpp line 85] 
+(Filename: A Line: 0)
+
+ball spawned
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:SpawnBall() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:55)
+PaddleScript:LoseLife() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:64)
+PaddleScript:DropBomb() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:175)
+PaddleScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:137)
+ 
+(Filename: A Line: 0)
+
+brick_25 (UnityEngine.GameObject) DeathZone Trigger
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
+ 
+(Filename: A Line: 0)
+
+numBricks=115, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
  
 (Filename: A Line: 0)
 
@@ -164,99 +195,11 @@ BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50
  
 (Filename: A Line: 0)
 
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is -0.3477545
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
- 
-(Filename: A Line: 0)
-
 numBricks=113, level=0
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
 BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is -0.155206
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
  
 (Filename: A Line: 0)
 
@@ -276,36 +219,6 @@ BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50
  
 (Filename: A Line: 0)
 
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
 numBricks=110, level=0
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -319,13 +232,6 @@ UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
 BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
- 
-(Filename: A Line: 0)
-
-brick_25 (UnityEngine.GameObject) DeathZone Trigger
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
  
 (Filename: A Line: 0)
 
@@ -345,90 +251,11 @@ BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50
  
 (Filename: A Line: 0)
 
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is -0.639417
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is 0.6376848
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
- 
-(Filename: A Line: 0)
-
 numBricks=106, level=0
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
 BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) DeathZone Trigger
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is -0.9999999
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
  
 (Filename: A Line: 0)
 
@@ -440,130 +267,11 @@ BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50
  
 (Filename: A Line: 0)
 
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is -0.2714731
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is -0.1055903
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
- 
-(Filename: A Line: 0)
-
 numBricks=104, level=0
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
 BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
- 
-(Filename: A Line: 0)
-
-ball (UnityEngine.GameObject) DeathZone Trigger
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
- 
-(Filename: A Line: 0)
-
-ball!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:20)
- 
-(Filename: A Line: 0)
-
-ball spawned
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:SpawnBall() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:55)
-PaddleScript:LoseLife() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:64)
-BallScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BallScript.cs:32)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:24)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) DeathZone Trigger
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-brick_100 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_100
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-paddle (PaddleScript) BoostSpeed: 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:BoostSpeed(Single) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:157)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:71)
- 
-(Filename: A Line: 0)
-
-brick_25 (UnityEngine.GameObject) DeathZone Trigger
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
  
 (Filename: A Line: 0)
 
@@ -583,159 +291,11 @@ BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50
  
 (Filename: A Line: 0)
 
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is -1.017361
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
 numBricks=101, level=0
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
 BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is 0.7449505
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
- 
-(Filename: A Line: 0)
-
-brick_100 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_100
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-paddle (PaddleScript) BoostSpeed: 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:BoostSpeed(Single) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:157)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:71)
- 
-(Filename: A Line: 0)
-
------------ Brick brick_100 deploying powerUp
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:DeployPowerUp() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:105)
-BrickScript:Hit(Single) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:90)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:75)
- 
-(Filename: A Line: 0)
-
-brick_100 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_100
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-paddle (PaddleScript) BoostSpeed: 
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:BoostSpeed(Single) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:157)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:71)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is -0.09606385
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
- 
-(Filename: A Line: 0)
-
-powerUp_width(Clone) (UnityEngine.GameObject) collided with wall_top (UnityEngine.GameObject)
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PowerUpScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PowerUpScript.cs:39)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is 0.1656472
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
  
 (Filename: A Line: 0)
 
@@ -755,147 +315,11 @@ BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50
  
 (Filename: A Line: 0)
 
-paddle (UnityEngine.GameObject) DeathZone Trigger
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-brick_25 (BrickScript) was hit by ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
- 
-(Filename: A Line: 0)
-
-SoundManager (SoundManagerScript).PlayBrickSound:brick_25
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
-BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
- 
-(Filename: A Line: 0)
-
-powerUp_width(Clone) (UnityEngine.GameObject) collided with paddle (UnityEngine.GameObject)
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PowerUpScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PowerUpScript.cs:39)
- 
-(Filename: A Line: 0)
-
-powerUp_width(Clone) (UnityEngine.GameObject) hit paddle
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PowerUpScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PowerUpScript.cs:41)
- 
-(Filename: A Line: 0)
-
-powerUp_sound(Clone) (UnityEngine.GameObject) PlayPowerUpSound:powerUp_width(Clone) (UnityEngine.GameObject)
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PowerUpManagerScript:PlayPowerUpSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\PowerUpManagerScript.cs:45)
-PowerUpScript:ApplyPowerUp() (at A:\data\Unity\Breakout\Assets\Scripts\PowerUpScript.cs:50)
-PowerUpScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PowerUpScript.cs:45)
- 
-(Filename: A Line: 0)
-
-paddle (PaddleScript) ActivatePowerUp recieved: powerUp_width(Clone)
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:ActivatePowerUp(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:151)
-PowerUpScript:ApplyPowerUp() (at A:\data\Unity\Breakout\Assets\Scripts\PowerUpScript.cs:62)
-PowerUpScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PowerUpScript.cs:45)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with powerUp_width(Clone)
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
 numBricks=98, level=0
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
 BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
- 
-(Filename: A Line: 0)
-
-paddle (UnityEngine.GameObject) collided with ball
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
- 
-(Filename: A Line: 0)
-
-english is 0.9088542
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
- 
-(Filename: A Line: 0)
-
-ball (UnityEngine.GameObject) DeathZone Trigger
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
- 
-(Filename: A Line: 0)
-
-ball!
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:20)
- 
-(Filename: A Line: 0)
-
-ball spawned
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-PaddleScript:SpawnBall() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:55)
-PaddleScript:LoseLife() (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:64)
-BallScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BallScript.cs:32)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:24)
- 
-(Filename: A Line: 0)
-
-brick_25 (UnityEngine.GameObject) DeathZone Trigger
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
  
 (Filename: A Line: 0)
 
@@ -923,6 +347,117 @@ BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50
  
 (Filename: A Line: 0)
 
+brick_power (BrickScript) was hit by ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
+ 
+(Filename: A Line: 0)
+
+SoundManager (SoundManagerScript).PlayBrickSound:brick_power
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
+ 
+(Filename: A Line: 0)
+
+paddle (PaddleScript) BoostSpeed: 
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:BoostSpeed(Single) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:157)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:71)
+ 
+(Filename: A Line: 0)
+
+paddle (UnityEngine.GameObject) collided with ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
+ 
+(Filename: A Line: 0)
+
+english is -0.3484265
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
+ 
+(Filename: A Line: 0)
+
+numBricks=94, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
+brick_25 (BrickScript) was hit by ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
+ 
+(Filename: A Line: 0)
+
+SoundManager (SoundManagerScript).PlayBrickSound:brick_25
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
+ 
+(Filename: A Line: 0)
+
+paddle (UnityEngine.GameObject) collided with ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
+ 
+(Filename: A Line: 0)
+
+english is -0.1100438
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
+ 
+(Filename: A Line: 0)
+
+brick_25 (BrickScript) was hit by ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
+ 
+(Filename: A Line: 0)
+
+SoundManager (SoundManagerScript).PlayBrickSound:brick_25
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
+ 
+(Filename: A Line: 0)
+
+numBricks=93, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
+paddle (UnityEngine.GameObject) collided with ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
+ 
+(Filename: A Line: 0)
+
+english is -0.6634439
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
+ 
+(Filename: A Line: 0)
+
 brick_25 (BrickScript) was hit by ball
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -950,6 +485,194 @@ UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
 BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
+ 
+(Filename: A Line: 0)
+
+numBricks=92, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
+paddle (UnityEngine.GameObject) collided with ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
+ 
+(Filename: A Line: 0)
+
+english is -0.2095451
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
+ 
+(Filename: A Line: 0)
+
+brick_25 (UnityEngine.GameObject) DeathZone Trigger
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scripts\DeathZoneScript.cs:18)
+ 
+(Filename: A Line: 0)
+
+brick_25 (BrickScript) was hit by ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
+ 
+(Filename: A Line: 0)
+
+SoundManager (SoundManagerScript).PlayBrickSound:brick_25
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
+ 
+(Filename: A Line: 0)
+
+numBricks=91, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
+numBricks=90, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
+paddle (UnityEngine.GameObject) collided with ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
+ 
+(Filename: A Line: 0)
+
+english is -0.5204303
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
+ 
+(Filename: A Line: 0)
+
+brick_100 (BrickScript) was hit by ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
+ 
+(Filename: A Line: 0)
+
+SoundManager (SoundManagerScript).PlayBrickSound:brick_100
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
+ 
+(Filename: A Line: 0)
+
+paddle (PaddleScript) BoostSpeed: 
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:BoostSpeed(Single) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:157)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:71)
+ 
+(Filename: A Line: 0)
+
+brick_power (BrickScript) was hit by ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
+ 
+(Filename: A Line: 0)
+
+SoundManager (SoundManagerScript).PlayBrickSound:brick_power
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
+ 
+(Filename: A Line: 0)
+
+paddle (PaddleScript) BoostSpeed: 
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:BoostSpeed(Single) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:157)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:71)
+ 
+(Filename: A Line: 0)
+
+brick_power (BrickScript) was hit by ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
+ 
+(Filename: A Line: 0)
+
+SoundManager (SoundManagerScript).PlayBrickSound:brick_power
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
+ 
+(Filename: A Line: 0)
+
+paddle (PaddleScript) BoostSpeed: 
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:BoostSpeed(Single) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:157)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:71)
+ 
+(Filename: A Line: 0)
+
+brick_power (BrickScript) was hit by ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:65)
+ 
+(Filename: A Line: 0)
+
+SoundManager (SoundManagerScript).PlayBrickSound:brick_power
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+SoundManagerScript:PlayBrickSound(GameObject) (at A:\data\Unity\Breakout\Assets\Scripts\SoundManagerScript.cs:42)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:66)
+ 
+(Filename: A Line: 0)
+
+paddle (PaddleScript) BoostSpeed: 
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:BoostSpeed(Single) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:157)
+BrickScript:OnCollisionEnter(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:71)
+ 
+(Filename: A Line: 0)
+
+numBricks=89, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
+paddle (UnityEngine.GameObject) collided with ball
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:180)
+ 
+(Filename: A Line: 0)
+
+english is -1
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+PaddleScript:OnCollisionExit(Collision) (at A:\data\Unity\Breakout\Assets\Scripts\PaddleScript.cs:186)
  
 (Filename: A Line: 0)
 
@@ -977,4 +700,35 @@ DeathZoneScript:OnTriggerEnter(Collider) (at A:\data\Unity\Breakout\Assets\Scrip
  
 (Filename: A Line: 0)
 
-Waiting for finish
+numBricks=88, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
+numBricks=87, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
+numBricks=86, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
+numBricks=85, level=0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BrickScript:Die() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:116)
+BrickScript:Update() (at A:\data\Unity\Breakout\Assets\Scripts\BrickScript.cs:50)
+ 
+(Filename: A Line: 0)
+
