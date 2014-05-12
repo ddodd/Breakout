@@ -42,12 +42,12 @@ public class PowerUpScript : MonoBehaviour {
 			rigidbody.isKinematic = true;
 			renderer.enabled = false;
 			collider.isTrigger = true;
-			ApplyPowerUp();
+			ApplyPowerUp(this.gameObject);
 		}
 	}
 
-	void ApplyPowerUp(){
-		powerUpManagerScript.PlayPowerUpSound (gameObject);
+	void ApplyPowerUp(GameObject powerup){
+		powerUpManagerScript.PlayPowerUpSound (powerup);
 		switch(type){
 		case "WIDTH":
 			//paddleScript.ResetScale();
@@ -59,7 +59,7 @@ public class PowerUpScript : MonoBehaviour {
 			Die();
 			break;
 		}
-		paddleScript.ActivatePowerUp(gameObject);		
+		paddleScript.ActivatePowerUp(powerup);		
 	}
 	
 	public void Die()

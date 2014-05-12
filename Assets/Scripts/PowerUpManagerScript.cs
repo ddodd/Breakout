@@ -4,11 +4,11 @@ using System.Collections;
 public class PowerUpManagerScript : MonoBehaviour {
 	public GameObject PowerUpPrefab_width;
 	public GameObject PowerUpPrefab_life;
-	public GameObject powerUpPrefab_sound;
+	//public GameObject powerUpPrefab_sound;
 	private GameObject mySound;
 
 	void Start () {
-		mySound = (GameObject)Instantiate (powerUpPrefab_sound, transform.position, Quaternion.identity);
+		mySound = GameObject.Find ("powerUp_sound");
 		Debug.Log (this+".Start:"+mySound);
 	}
 	

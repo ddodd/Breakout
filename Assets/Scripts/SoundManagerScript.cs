@@ -2,13 +2,7 @@
 using System.Collections;
 
 public class SoundManagerScript : MonoBehaviour {
-
-	public GameObject brick_5_sound_prefab;
-	public GameObject brick_10_sound_prefab;
-	public GameObject brick_25_sound_prefab;
-	public GameObject brick_100_sound_prefab;
-	public GameObject brick_power_sound_prefab;
-
+	private GameObject ball_bounce;
 	private GameObject brick_5_sound;
 	private GameObject brick_10_sound;
 	private GameObject brick_25_sound;
@@ -19,11 +13,7 @@ public class SoundManagerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		audio.Play();
-//		brick_5_sound = (GameObject)Instantiate (brick_5_sound_prefab);
-//		brick_10_sound = (GameObject)Instantiate (brick_10_sound_prefab);
-//		brick_25_sound = (GameObject)Instantiate (brick_25_sound_prefab);
-//		brick_100_sound = (GameObject)Instantiate (brick_100_sound_prefab);
-//		brick_power_sound = (GameObject)Instantiate (brick_power_sound_prefab);
+		ball_bounce = GameObject.Find ("ball_bounce");
 		brick_5_sound = GameObject.Find ("brick_5_sound");
 		brick_10_sound = GameObject.Find ("brick_10_sound");
 		brick_25_sound = GameObject.Find ("brick_25_sound");
@@ -36,30 +26,33 @@ public class SoundManagerScript : MonoBehaviour {
 	
 	}
 
-	public void PlayBrickSound(GameObject brick){
-		Vector3 brickPosition = brick.transform.position;
-		string brickName = brick.name;
-		Debug.Log (this+".PlayBrickSound:" + brickName);
-		GameObject brickSound = brick_5_sound;
-		switch (brickName) {
+	public void PlayGameSound(GameObject go){
+		Vector3 brickPosition = go.transform.position;
+		string goName = go.name;
+		Debug.Log (this+".PlayBrickSound:" + goName);
+		GameObject goSound = ball_bounce;
+		switch (goName) {
+		case "ball":
+			goSound = ball_bounce;
+			break;
 		case "brick_5":
-			brickSound = brick_5_sound;
+			goSound = brick_5_sound;
 			break;
 		case "brick_10":
-			brickSound = brick_10_sound;
+			goSound = brick_10_sound;
 			break;
 		case "brick_25":
-			brickSound = brick_25_sound;
+			goSound = brick_25_sound;
 			break;
 		case "brick_100":
-			brickSound = brick_100_sound;
+			goSound = brick_100_sound;
 			break;
 		case "brick_power":
-			brickSound = brick_power_sound;
+			goSound = brick_power_sound;
 			break;
 		}
-		brickSound.transform.position = brickPosition;
-		brickSound.audio.Play ();
+		goSound.transform.position = brickPosition;
+		goSound.audio.Play ();
 
 	}
 }

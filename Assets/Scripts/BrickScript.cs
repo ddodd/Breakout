@@ -63,7 +63,7 @@ public class BrickScript : MonoBehaviour {
 
 	void OnCollisionEnter( Collision col ){
 		Debug.Log (this + " was hit by "+col.collider.gameObject.name);
-		soundManagerScript.PlayBrickSound( gameObject );
+		soundManagerScript.PlayGameSound( gameObject );
 		if (col.collider.gameObject.name.Substring (0, 4) == "ball") {
 			hitPoints--;
 			ball = col.collider.gameObject;

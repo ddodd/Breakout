@@ -5,11 +5,11 @@ public class BallScript : MonoBehaviour {
 	public float speedLimit;
 	public float speedMin = 1;
 	public GameObject bounceSoundPrefab;
-	private static GameObject mySound;
+	private static SoundManagerScript soundManagerScript;
+	private GameObject mySound;
 
 	void Start () {
-		if(!mySound)
-			mySound = (GameObject)Instantiate (bounceSoundPrefab, transform.position, Quaternion.identity);
+		soundManagerScript = GameObject.Find ("SoundManager").GetComponent<SoundManagerScript> ();
 	}
 	
 	void Update () {
@@ -36,8 +36,8 @@ public class BallScript : MonoBehaviour {
 	{
 		if (col.collider.gameObject.name.Substring (0, 5) == "brick")
 			return;
-
-		mySound.transform.position = transform.position;
-		mySound.audio.Play();
+		soundManagerScript.PlayGameSound (gameObject);
+//		mySound.transform.position = transform.position;
+//		mySound.audio.Play();
 	}
 }

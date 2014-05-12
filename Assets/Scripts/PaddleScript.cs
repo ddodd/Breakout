@@ -12,13 +12,14 @@ public class PaddleScript : MonoBehaviour {
 	private GameObject ball;
 	private GameObject bomb;
 
-	private GUIText guiLives;
-//	private GUIText instructions;
+	private GUIText infoText;
+
 	private float xMax;
 	private float xMin;
 	private Vector3 scaleNormal;
 	private float paddleWidth;
-
+	private Vector3 paddlePosition;
+	private Vector3 paddleVelocity;
 	int score = 0;
 
 	// Use this for initialization
@@ -26,15 +27,14 @@ public class PaddleScript : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 		DontDestroyOnLoad(GameObject.Find ("PlayField"));
 
-		guiLives = GameObject.Find ("guiLives").GetComponent<GUIText> ();
-//		instructions = GameObject.Find ("instructions").GetComponent<GUIText> ();
-//		instructions.text = "Use mouse to move paddle, lmb launches ball, rmb explodes ball";
-		updateGUI();
+		infoText = GameObject.Find ("info").GetComponent<GUIText> ();
+		infoText.text = "Mouse moves paddle, lmb launches ball, rmb explodes ball";
 		scaleNormal = gameObject.transform.localScale;
 		GameObject wall = GameObject.Find ("wall_left");
 		xMin = wall.transform.position.x;
 		wall = GameObject.Find ("wall_right");
 		xMax = wall.transform.position.x;
+		paddlePosition = transform.position;
 
 		SpawnBall ();
 	}
@@ -58,7 +58,6 @@ public class PaddleScript : MonoBehaviour {
 	public void LoseLife()
 	{
 		lives--;
-		updateGUI();
 		if (lives > 0) 
 		{
 			SpawnBall();
@@ -74,45 +73,29 @@ public class PaddleScript : MonoBehaviour {
 	public void GainLife()
 	{
 		lives++;
-		updateGUI();
 	}
 
-	void updateGUI(){
-		guiLives.text = "Lives:" + lives;
-//		instructions.text = "Lives:" + lives;
-	}
-	
 	void OnGUI()
 	{
 		GUI.skin = guiSkin;
 		GUI.Label (new Rect (10, 10, 300, 100), "Score: " + score);
+		GUI.Label (new Rect (10, 1000, 300, 100), "Lives: " + lives);
 	}
 
 	public void AddPoints(int value)
 	{
 		score += value;
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
 		//Debug.Log ("paddle.Update");
-		//float h = Input.GetAxis ("Mouse X");
-//		float h = Input.GetAxis ("Horizontal");
-//		if( h!=0 )
-//		{
-//			float dx = power * h * Time.deltaTime;
-//			float x = transform.position.x + dx;
-//			if(x < xMin || x > xMax) dx = 0;
-//			//Debug.Log ("x " + x);
-//			transform.Translate (dx, 0, 0);
-//		}
-		float h = 0;
-		//Vector3 paddleVelocity = rig
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		mousePosition.z = 0;
 		transform.position = keepInBounds (mousePosition);
-
+		paddleVelocity = (transform.position - paddlePosition)/Time.deltaTime;
+		paddlePosition = transform.position;
 		//Debug.Log ("paddle.transform.position"+transform.position);
 		if(attachedBall){
 			// make ball track paddle
@@ -123,13 +106,7 @@ public class PaddleScript : MonoBehaviour {
 			//Debug.Log ("t.position:"+transform.position);
 			ballRigidbody.position = transform.position + new Vector3 (0, 0.75f, 0);
 			if(Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)){
-				ballRigidbody.isKinematic = false;
-				ballRigidbody.AddForce( h*500f, 1000f, 0 );
-				ball = attachedBall;
-				ball.name = "ball";
-				ball.collider.isTrigger = false;
-				DontDestroyOnLoad(ball);
-				attachedBall = null;
+				LaunchBall();
 			}
 		}else{
 			if(Input.GetKeyDown (KeyCode.LeftControl) || Input.GetMouseButtonDown(1)){
@@ -137,6 +114,26 @@ public class PaddleScript : MonoBehaviour {
 				DropBomb();
 			}
 		}
+	}
+
+	void LaunchBall(){
+		Debug.Log ("paddleVelocity:" + paddleVelocity);
+		ball = attachedBall;
+		DontDestroyOnLoad(ball);
+		attachedBall = null;
+		AddPaddleForce ();
+		ball.rigidbody.isKinematic = false;
+		ball.name = "ball";
+		ball.collider.isTrigger = false;
+	}
+
+	void AddPaddleForce(){
+		float vx = Mathf.Min (Mathf.Max (paddleVelocity.x, -10),10);
+		float vy = Mathf.Min (Mathf.Max (paddleVelocity.y, 0),10);
+		
+		Vector3 paddleForce = new Vector3 (vx * power, (100 + vy) * power, 0);
+		ball.rigidbody.AddForce( paddleForce );
+
 	}
 
 	Vector3 keepInBounds(Vector3 position, float margin=0f){
@@ -184,8 +181,8 @@ public class PaddleScript : MonoBehaviour {
 				if(contact.thisCollider == collider){
 					float english = (contact.point.x - transform.position.x)/paddleWidth;
 					Debug.Log ("english is "+english);
-					//contact.otherCollider.rigidbody.AddForce ( 1000f * english, 200f, 0);
-					col.collider.gameObject.rigidbody.AddForce ( 1000f * english, 200f, 0);
+					col.collider.gameObject.rigidbody.AddForce ( 1000f * english, 0, 0);
+					AddPaddleForce ();
 					break;
 				}
 			}
