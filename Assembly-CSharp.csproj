@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BallScript.cs" />
      <Compile Include="Assets\Scripts\BombScript.cs" />
+     <Compile Include="Assets\Scripts\BrickFragManagerScript.cs" />
+     <Compile Include="Assets\Scripts\BrickFragScript.cs" />
      <Compile Include="Assets\Scripts\BrickScript.cs" />
      <Compile Include="Assets\Scripts\DeathZoneScript.cs" />
      <Compile Include="Assets\Scripts\PaddleScript.cs" />
@@ -57,6 +59,11 @@
      <Compile Include="Assets\Scripts\SoundManagerScript.cs" />
      <Compile Include="Assets\Scripts\SoundScript.cs" />
      <Compile Include="Assets\Scripts\WallScript.cs" />
+     <Compile Include="Assets\iTween\Plugins\iTween.cs" />
+     <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
+     <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
+     <Compile Include="Assets\iTween\Sample\SampleInfo.cs" />
+     <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

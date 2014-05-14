@@ -5,7 +5,7 @@ MonoImporter:
   defaultReferences:
   - ballPrefab: {fileID: 100000, guid: 2f21f1d07c22f994fb0e4903abd0ecee, type: 2}
   - bombPrefab: {fileID: 100000, guid: 091a0133ca34b284d8a4e40c964d79d7, type: 2}
-  - guiSkin: {instanceID: 0}
+  - guiSkin: {fileID: 11400000, guid: acd4f8e1f868206448be2dd75b37d1dc, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

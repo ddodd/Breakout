@@ -18,6 +18,7 @@ public class BrickScript : MonoBehaviour {
 	private static PowerUpManagerScript powerUpManagerScript;
 	private static SoundManagerScript soundManagerScript;
 	private static int nextPowerUp;
+	private static BrickFragManagerScript brickFragManagerScript;
 
 	private GameObject ball;
 
@@ -29,6 +30,16 @@ public class BrickScript : MonoBehaviour {
 	private bool markedForDeath = false;
 	private bool bombed = false;
 
+	public GameObject brick_fragPrefab;
+	private GameObject brickFrags;
+	private BrickFragScript brickFragScript;
+	public enum brickTypes 
+	{
+		Full, Half
+	}
+	
+	public brickTypes brickType;
+
 	void Start () {
 		//static properties added only once
 		if (numBricks == 0) {
@@ -36,9 +47,12 @@ public class BrickScript : MonoBehaviour {
 			GetNextPowerUp();
 			powerUpManagerScript = GameObject.Find ("PowerUpManager").GetComponent<PowerUpManagerScript>();
 			soundManagerScript = GameObject.Find ("SoundManager").GetComponent<SoundManagerScript> ();
-			//			originalScale = transform.localScale;
+			brickFragManagerScript = GameObject.Find ("BrickFragManager").GetComponent<BrickFragManagerScript> ();
 		}
 		numBricks++;
+//		brickFrags = (GameObject)Instantiate (brick_fragPrefab, transform.position, Quaternion.identity);
+//		brickFragScript = brickFrags.GetComponent<BrickFragScript> ();
+//		brickFragScript.setBrick (gameObject);
 	}
 	
 	void Update () {
@@ -51,7 +65,6 @@ public class BrickScript : MonoBehaviour {
 			}else{
 				float value = fadeAmount/fadeDuration; // value goes from 1 to 0 over time
 				renderer.material.color = Color.Lerp (colorEnd, colorStart, value);
-				//transform.localScale = originalScale * (1+value)/2;
 			}
 			//Debug.Log ("fadeAmount:"+fadeAmount);
 		}
@@ -84,21 +97,32 @@ public class BrickScript : MonoBehaviour {
 	}
 
 	public void Hit(float power=200f){
-		if (!bombed) {
+		if (bombed) {
+			collider.isTrigger = true;
+			markedForDeath = true;
+			fadeAmount = fadeDuration;
+			colorStart = renderer.material.color;			
+			colorEnd = colorStart;
+			colorEnd.a = 0;
+			gameObject.AddComponent<Rigidbody> ();
+			rigidbody.mass = 1;
+			rigidbody.AddExplosionForce(power, ball.transform.position, 10);
+		}
+		else
+		{
+			int brickTypeValue = 0;
+			if(brickType == brickTypes.Half)
+				brickTypeValue = 1;
+			//Debug.Log ("- brickType " + brickType);
+
+			brickFragManagerScript.Hit(gameObject, brickType, ball, power);
+			//brickFrags.GetComponent<BrickFragScript>().hit(ball, power);
 			nextPowerUp--;
 			if (nextPowerUp <= 0)
 				DeployPowerUp ();
 			paddleScript.AddPoints (pointValue);
+			Die ();
 		}
-		collider.isTrigger = true;
-		markedForDeath = true;
-		fadeAmount = fadeDuration;
-		colorStart = renderer.material.color;			
-		colorEnd = colorStart;
-		colorEnd.a = 0;
-		gameObject.AddComponent<Rigidbody> ();
-		rigidbody.mass = 1;
-		rigidbody.AddExplosionForce(power, ball.transform.position, 10);
 	}
 
 	void DeployPowerUp(){

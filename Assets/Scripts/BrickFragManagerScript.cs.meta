@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 9cb3b36adbefa9d4d80ee00c85fc406d
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - brickFragPrefab: {fileID: 100132, guid: 7c78c18d818e00d4385e1821b3e73ea5, type: 2}
+  - brickFrag_hPrefab: {fileID: 100018, guid: dd08a2d0af1e2f744956faaadea8ceb2, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

@@ -14,6 +14,15 @@ public class WallScript : MonoBehaviour {
 	
 	}
 
+
+	void OnCollisionEnter( Collision col)
+	{
+		if(col.collider.gameObject.name == "brick_fragment"){
+//			Debug.Log ("fragment hit wall!");
+			Destroy (col.collider.gameObject);
+		}
+	}
+
 	void OnCollisionExit( Collision col)
 	{
 		if (col.collider.gameObject.name != "ball")

@@ -15,7 +15,7 @@ public class DeathZoneScript : MonoBehaviour {
 
 	void OnTriggerEnter( Collider other) 
 	{
-		Debug.Log (other.gameObject+" DeathZone Trigger");
+//		Debug.Log (other.gameObject+" DeathZone Trigger");
 		if(other.gameObject.name == "ball"){
 			Debug.Log ("ball!");
 			BallScript ballScript = other.GetComponent<BallScript> ();
@@ -31,6 +31,10 @@ public class DeathZoneScript : MonoBehaviour {
 			{
 				powerUpScript.Die();
 			}
+		}
+		else if(other.gameObject.name == "brick_fragment"){
+//			Debug.Log ("fragment!");
+			Destroy (other.gameObject);
 		}
 	}
 }

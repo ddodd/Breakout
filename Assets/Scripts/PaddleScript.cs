@@ -35,6 +35,7 @@ public class PaddleScript : MonoBehaviour {
 		wall = GameObject.Find ("wall_right");
 		xMax = wall.transform.position.x;
 		paddlePosition = transform.position;
+		paddleWidth = renderer.bounds.extents.x;
 
 		SpawnBall ();
 	}
@@ -176,12 +177,11 @@ public class PaddleScript : MonoBehaviour {
 	{
 		Debug.Log (this.gameObject + " collided with "+col.collider.gameObject.name);
 		if(col.collider.gameObject.name=="ball"){
-			paddleWidth = renderer.bounds.extents.x;
 			foreach (ContactPoint contact in col.contacts) {
 				if(contact.thisCollider == collider){
 					float english = (contact.point.x - transform.position.x)/paddleWidth;
-					Debug.Log ("english is "+english);
-					col.collider.gameObject.rigidbody.AddForce ( 1000f * english, 0, 0);
+					Debug.Log ("paddleWidth is "+paddleWidth+", english is "+english);
+					col.collider.gameObject.rigidbody.AddForce ( 3000f * english, 200f*(1-Mathf.Min(1, Mathf.Abs(english))), 0 );
 					AddPaddleForce ();
 					break;
 				}
