@@ -7,7 +7,7 @@ public class PaddleScript : MonoBehaviour {
 	public int lives = 6;
 	public GUISkin guiSkin;
 
-	public float power = 20f;
+	public float power = 50f;
 	private GameObject attachedBall;
 	private GameObject ball;
 	private GameObject bomb;
@@ -28,7 +28,7 @@ public class PaddleScript : MonoBehaviour {
 		DontDestroyOnLoad(GameObject.Find ("PlayField"));
 
 		infoText = GameObject.Find ("info").GetComponent<GUIText> ();
-		infoText.text = "Mouse moves paddle, lmb launches ball, rmb explodes ball";
+		infoText.text = "Mouse moves paddle, LMB launches ball, RMB explodes ball";
 		scaleNormal = gameObject.transform.localScale;
 		GameObject wall = GameObject.Find ("wall_left");
 		xMin = wall.transform.position.x;
@@ -40,29 +40,24 @@ public class PaddleScript : MonoBehaviour {
 		SpawnBall ();
 	}
 
-	public void OnLevelWasLoaded( int level )
-	{
+	public void OnLevelWasLoaded( int level ){
 		Debug.Log ("level " + level + " loaded");
 		ResetScale();
 		if(!ball)
 			SpawnBall ();
 	}
 
-	public void SpawnBall()
-	{
+	public void SpawnBall(){
 		attachedBall = (GameObject)Instantiate (ballPrefab, transform.position + new Vector3 (0, 0.75f, 0), Quaternion.identity);
 		attachedBall.name = "attachedBall";
 		attachedBall.collider.isTrigger = true;
 		Debug.Log ("ball spawned");
     }
 
-	public void LoseLife()
-	{
+	public void LoseLife(){
 		lives--;
 		if (lives > 0) 
-		{
 			SpawnBall();
-		}
 		else
 		{
 			Destroy(gameObject);
@@ -71,26 +66,22 @@ public class PaddleScript : MonoBehaviour {
 		
 	}
 	
-	public void GainLife()
-	{
+	public void GainLife(){
 		lives++;
 	}
 
-	void OnGUI()
-	{
+	void OnGUI(){
 		GUI.skin = guiSkin;
 		GUI.Label (new Rect (10, 10, 300, 100), "Score: " + score);
 		GUI.Label (new Rect (10, 1000, 300, 100), "Lives: " + lives);
 	}
 
-	public void AddPoints(int value)
-	{
+	public void AddPoints(int value){
 		score += value;
 	}
 
 	// Update is called once per frame
-	void Update () 
-	{
+	void Update () {
 		//Debug.Log ("paddle.Update");
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		mousePosition.z = 0;
@@ -118,6 +109,8 @@ public class PaddleScript : MonoBehaviour {
 	}
 
 	void LaunchBall(){
+		if(infoText != null)
+			Destroy(infoText);
 		Debug.Log ("paddleVelocity:" + paddleVelocity);
 		ball = attachedBall;
 		DontDestroyOnLoad(ball);
@@ -129,10 +122,11 @@ public class PaddleScript : MonoBehaviour {
 	}
 
 	void AddPaddleForce(){
-		float vx = Mathf.Min (Mathf.Max (paddleVelocity.x, -10),10);
-		float vy = Mathf.Min (Mathf.Max (paddleVelocity.y, 0),10);
-		
-		Vector3 paddleForce = new Vector3 (vx * power, (100 + vy) * power, 0);
+		float vMax = 100f;
+		float vx = Mathf.Min (Mathf.Max (paddleVelocity.x, -vMax),vMax);
+		float vy = Mathf.Min (Mathf.Max (paddleVelocity.y, 0),vMax);
+		Debug.Log("AddPaddleForce pV:"+paddleVelocity+"vx:"+vx+"vy:"+vy);
+		Vector3 paddleForce = new Vector3 (vx * power, (vMax/2 + vy) * power, 0);
 		ball.rigidbody.AddForce( paddleForce );
 
 	}
@@ -173,15 +167,14 @@ public class PaddleScript : MonoBehaviour {
 		LoseLife ();
 	}
 	
-	void OnCollisionExit( Collision col)
-	{
+	void OnCollisionExit( Collision col){
 		Debug.Log (this.gameObject + " collided with "+col.collider.gameObject.name);
 		if(col.collider.gameObject.name=="ball"){
 			foreach (ContactPoint contact in col.contacts) {
 				if(contact.thisCollider == collider){
 					float english = (contact.point.x - transform.position.x)/paddleWidth;
 					Debug.Log ("paddleWidth is "+paddleWidth+", english is "+english);
-					col.collider.gameObject.rigidbody.AddForce ( 3000f * english, 200f*(1-Mathf.Min(1, Mathf.Abs(english))), 0 );
+					col.collider.gameObject.rigidbody.AddForce ( 3000f * english, 100f*(1-Mathf.Min(1, Mathf.Abs(english))), 0 );
 					AddPaddleForce ();
 					break;
 				}

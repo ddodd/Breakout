@@ -4,13 +4,13 @@ using System.Collections;
 public class PowerUpScript : MonoBehaviour {
 
 	public float duration = 5;
-	public string type="WIDTH";
 	private bool triggered = false;
 	private GameObject paddle;
 	private PaddleScript paddleScript;
 	private PowerUpManagerScript powerUpManagerScript;
 
 	private Vector3 extraWide = new Vector3(1,0,0);
+	public PowerUpManagerScript.PowerUpType powerUpType;
 
 	void Start () {
 		paddle = GameObject.Find ("paddle");
@@ -48,13 +48,13 @@ public class PowerUpScript : MonoBehaviour {
 
 	void ApplyPowerUp(GameObject powerup){
 		powerUpManagerScript.PlayPowerUpSound (powerup);
-		switch(type){
-		case "WIDTH":
+		switch(powerUpType){
+		case PowerUpManagerScript.PowerUpType.WIDTH:
 			//paddleScript.ResetScale();
 			paddle.transform.localScale += extraWide;
 			triggered = true;
 			break;
-		case "LIFE":
+		case PowerUpManagerScript.PowerUpType.LIFE:
 			paddleScript.GainLife();
 			Die();
 			break;
@@ -65,11 +65,11 @@ public class PowerUpScript : MonoBehaviour {
 	public void Die()
 	{
 		Debug.Log (this.gameObject + " death");
-		switch(type){
-		case "WIDTH":
+		switch(powerUpType){
+		case PowerUpManagerScript.PowerUpType.WIDTH:
 			paddle.transform.localScale -= extraWide;
 			break;
-		case "LIFE":
+		case PowerUpManagerScript.PowerUpType.LIFE:
 			break;
 		}
 		Destroy (gameObject);

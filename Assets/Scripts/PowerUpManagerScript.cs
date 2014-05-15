@@ -4,25 +4,26 @@ using System.Collections;
 public class PowerUpManagerScript : MonoBehaviour {
 	public GameObject PowerUpPrefab_width;
 	public GameObject PowerUpPrefab_life;
-	//public GameObject powerUpPrefab_sound;
+
 	private GameObject mySound;
 
+	public enum PowerUpType 
+	{
+		WIDTH, LIFE
+	}
+	
 	void Start () {
 		mySound = GameObject.Find ("powerUp_sound");
 		Debug.Log (this+".Start:"+mySound);
 	}
 	
-	void Update () 
-	{
-	}
-
-	public GameObject GetPowerUp(string type){
+	public GameObject GetPowerUp(PowerUpType type){
 		GameObject powerUpPreFab = null;
 		switch(type){
-		case "WIDTH":
+		case PowerUpType.WIDTH:
 			powerUpPreFab = PowerUpPrefab_width;
 			break;
-		case "LIFE":
+		case PowerUpType.LIFE:
 			powerUpPreFab = PowerUpPrefab_life;
 			break;
 		}
