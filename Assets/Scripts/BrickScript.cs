@@ -100,7 +100,7 @@ public class BrickScript : MonoBehaviour {
 	public void Bomb(GameObject ball) {
 		bombed = true;
 		this.ball = ball;
-		Hit (ball.rigidbody.velocity, 100f);
+		Hit (ball.rigidbody.velocity, 750f);
 	}
 
 	public void Hit(Vector3 ballVelocity, float power=20f){
@@ -114,7 +114,8 @@ public class BrickScript : MonoBehaviour {
 			gameObject.AddComponent<Rigidbody> ();
 			rigidbody.mass = 1;
 			rigidbody.AddForce(ballVelocity);
-			rigidbody.AddExplosionForce(power, ball.transform.position, 10);
+			float bombPower = power * Random.Range(.5f,2f);
+			rigidbody.AddExplosionForce(power, ball.transform.position, 4f);
 		}
 		else
 		{

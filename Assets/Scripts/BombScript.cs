@@ -3,7 +3,10 @@ using System.Collections;
 
 public class BombScript : MonoBehaviour {
 	public GameObject BombSoundPrefab;
-	private GameObject mySound;
+	public GameObject ExplosionPrefab;
+
+	private GameObject sound;
+	private GameObject explosion;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +20,9 @@ public class BombScript : MonoBehaviour {
 
 	public void Explode(GameObject ball, float radius=3) {
 		//Debug.Log (this+ ".Explode: ball="+ball);
-		mySound = (GameObject)Instantiate (BombSoundPrefab, ball.transform.position, Quaternion.identity);
-		mySound.audio.Play ();
+		explosion = (GameObject)Instantiate (ExplosionPrefab, ball.transform.position, Quaternion.identity);
+		sound = (GameObject)Instantiate (BombSoundPrefab, ball.transform.position, Quaternion.identity);
+		sound.audio.Play ();
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
 		Debug.Log (hitColliders.Length + " bricks effected");
 		int i = 0;
@@ -30,6 +34,6 @@ public class BombScript : MonoBehaviour {
 			i++;
 		}
 		Destroy(gameObject);
-		Destroy(mySound);
+		Destroy(sound);
 	}
 }

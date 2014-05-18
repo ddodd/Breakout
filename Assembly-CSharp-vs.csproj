@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\SoundManagerScript.cs" />
      <Compile Include="Assets\Scripts\SoundScript.cs" />
      <Compile Include="Assets\Scripts\WallScript.cs" />
+     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <Compile Include="Assets\iTween\Plugins\iTween.cs" />
      <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
      <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
