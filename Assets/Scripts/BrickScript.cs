@@ -131,7 +131,9 @@ public class BrickScript : MonoBehaviour {
 	void DeployPowerUp(){
 		Debug.Log ("----------- Brick " + name + " deploying powerUp");
 		GameObject powerUpPrefab = powerUpManagerScript.GetRandomPowerUp();
-		GameObject powerUp = (GameObject)Instantiate (powerUpPrefab, transform.position, Quaternion.identity);
+		Vector3 position = transform.position;
+		position.z = -1;
+		GameObject powerUp = (GameObject)Instantiate (powerUpPrefab, position, Quaternion.identity);
 		powerUp.rigidbody.AddTorque (0, 0, 50);
 		powerUp.rigidbody.AddForce (0, 500f, 0);
 		GetNextPowerUp();
